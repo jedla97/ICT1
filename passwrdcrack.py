@@ -21,36 +21,40 @@ global passwordCount
 def conection(ip, port, username, passwrd):
     ssh = paramiko.client.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())    
-
+    # try to connect to ssh server
     try:
         ssh.connect(ip , port, username, passwrd)
-
+    # when is not successful close and return false
     except paramiko.AuthenticationException:
         ssh.close()
         return False
-
+    # if connection successful return true
     else:
         ssh.close()
         return True
 
+# read name on specific line
 def readNameFile(filePath):
+	# to ensure is counted as global and not local
 	global namesCount
-	#print(namesCount)
 	with open(filePath) as lines:
-            #for line in islice(lines, namesCount, namesCount+1):
-            line = [x.rstrip('\n') for x in islice(lines, namesCount,namesCount+1)]
+	    # reading on specific line islice(file, from , where end) 
+            name = [x.rstrip('\n') for x in islice(lines, namesCount,namesCount+1)]
+	    # increase global to read next name after call this function again
             namesCount += 1
-            name=line
+	    # return string and not array
 	    return name[0]
 
+# to read a password at specific line
 def readPasswFile(filePath):
+	# to ensure is counted as global and not local
 	global passwordCount
-	#print(namesCount)
 	with open(filePath) as lines:
-            #for line in islice(lines, namesCount, namesCount+1):
-            line = [x.rstrip('\n') for x in islice(lines, passwordCount,passwordCount+1)]
+	    # reading on specific line islice(file, from , where end) 
+            passw = [x.rstrip('\n') for x in islice(lines, passwordCount,passwordCount+1)]
+	    # increase global to read next name after call this function again
             passwordCount += 1
-            passw=line
+	    # return string and not array
 	    return passw[0]
 
 # save user name and password in to the file
@@ -83,6 +87,7 @@ parser.add_argument("-p", "--port", help = "port of attacked ssh default is 22")
 parser.add_argument("-pf", "-pF", "--passwordFile", help = "!! OBLIGATORY !! file with passwords")
 args = parser.parse_args()
 
+# if all arguments is typed for file which include users to try on differnt port and save to own file
 if args.nameFile and args.passwordFile and args.ipAdress and args.port and args.outputFile:
 	# set global variable for user to zero 
 	namesCount=0
@@ -114,6 +119,7 @@ if args.nameFile and args.passwordFile and args.ipAdress and args.port and args.
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
 
+# all arguments for one specific user to try on differnt port and save to own file
 elif args.userName and args.passwordFile and args.ipAdress and args.port and args.outputFile:
 	# get numbers of line for user and password file
 	countOfPassw=file_len(os.getcwd()+"/"+args.passwordFile)
@@ -138,6 +144,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.port and arg
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
 
+# to connect for different port with multiple users
 elif args.nameFile and args.passwordFile and args.ipAdress and args.port:
 	# set global variable for user to zero 
 	namesCount=0
@@ -169,6 +176,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress and args.port:
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
 
+# to connect to specific port with one user
 elif args.userName and args.passwordFile and args.ipAdress and args.port:	
 	# get numbers of line for user and password file
 	countOfPassw=file_len(os.getcwd()+"/"+args.passwordFile)
@@ -193,6 +201,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.port:
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
 
+# to safe all user which were discovered password to own file
 elif args.nameFile and args.passwordFile and args.ipAdress and args.outputFile:
 	# set global variable for user to zero 
 	namesCount=0
@@ -224,6 +233,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress and args.outputFile:
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
 
+# to safe user which was discovered password to own file
 elif args.userName and args.passwordFile and args.ipAdress and args.outputFile:	
 	# get numbers of line for user and password file
 	countOfPassw=file_len(os.getcwd()+"/"+args.passwordFile)
@@ -248,6 +258,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.outputFile:
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
 
+# use file of users to try
 elif args.nameFile and args.passwordFile and args.ipAdress:
 	# set global variable for user to zero 
 	namesCount=0
@@ -279,6 +290,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress:
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
 
+# try passwords on one user
 elif args.userName and args.passwordFile and args.ipAdress:	
 	# get numbers of line for user and password file
 	countOfPassw=file_len(os.getcwd()+"/"+args.passwordFile)
@@ -303,24 +315,8 @@ elif args.userName and args.passwordFile and args.ipAdress:
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
 
+# when not using obligatory arguments or something this show help
 else:
 	print("check if you use all obligatory arguments")
         parser.print_help()
-"""
-if args.nameFile:
-    namesCount=0
-    #print(namesCount)
-    #print(os.getcwd()+"/"+args.nameFile)
-    #f = open((os.getcwd()+"/"+args.nameFile), "r")
-    while (namesCount<5):
-	user = readNameFile(os.getcwd()+"/"+args.nameFile)
-        print(conection(ip, port, user, passwrd))
-        print(user+ " " + str(namesCount))
-        #print(namesCount)
-    #print(f.readline())
-    #f.close()
-elif args.nameFile and args.passwordFile:
-    print("nameFile % s" % args.nameFile +  " password % s" % args.passwordFile )
-elif args.nameFile and args.passwordFile and args.port:
-    print("namefile + passwordFile + port")
-"""
+
