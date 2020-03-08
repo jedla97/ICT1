@@ -50,10 +50,10 @@ fi
 
 echo $port
 # runnig script from Justin Gardner
-python ./enum/ssh_user_enum.py --port $port --userList fewnames.txt --outputFile allusers.txt $ipAdress
+python ./enum/ssh_user_enum.py --port $port --userList ./txtSources/fewnames.txt --outputFile allusers.txt $ipAdress
 
 # every valid user will be copy to validUsers.txt without "is a valid user"
-grep 'is a valid user' allusers.txt |cut -d' ' -f1 >validUsers.txt
+grep 'is a valid user' allusers.txt |cut -d' ' -f1 >./txtSources/validUsers.txt
 
 # show few first valid users
-head validUsers.txt
+head ./txtSources/validUsers.txt
