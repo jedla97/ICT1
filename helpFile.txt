@@ -1,4 +1,0 @@
-allusers.txt   == users after validation help file
-fewnames.txt   == some source names
-names.txt      == all names from metasploid database
-validusers.txt == all valid users after grep for running password crack
