@@ -70,6 +70,8 @@ alabama
 alaska
 albuquerque
 alerts
+alice
+Alice
 alpha
 alterwind
 am
@@ -166,6 +168,7 @@ bn
 bnc
 bo
 bob
+Bob
 bof
 boise
 bolsa
@@ -597,6 +600,8 @@ esx
 et
 eta
 europe
+Eva
+eva
 events
 example
 exchange
