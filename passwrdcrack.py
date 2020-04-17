@@ -12,7 +12,7 @@ if not sys.warnoptions:
 ###global IP = 10.0.2.6
 ip = '10.0.2.6'
 port = 22
-outputFile = os.getcwd()+"/txtSources/usersPassword.txt"
+outputFile = os.getcwd()+"/usersPassword.txt"
 filePathBruteforces = "/BruteForceSources"
 global namesCount
 global passwordCount
@@ -138,10 +138,10 @@ def brute_force_path(minc, maxc):
 # arguments for this python script
 parser = argparse.ArgumentParser()
 # choose mode
-parser.add_argument("-bfa", "-Bfa", "--BFA", help = " !! OBLIGATORY !! bfa for Brute Force Atack max 5 characters")
+parser.add_argument("-bfa", "-Bfa", "--BFA", help = " !! OBLIGATORY !! bfa for Brute Force Atack max 4 characters")
 # add arg for minimal numbers of char in Brute Force
 parser.add_argument("-bfas", "--BFAS", help = "for Brute Force Atack set starting number for number of char")
-# add arg for maximal numbers of char in Brute Force default max is 5
+# add arg for maximal numbers of char in Brute Force default max is 4
 parser.add_argument("-bfae", "--BFAE", help = "for Brute Force Atack set ending number for number of char max 5 characters")
 # add arg for file with user name
 parser.add_argument("-nf", "-nF", "--nameFile", help = " !! OBLIGATORY !! file with user name")
@@ -160,7 +160,7 @@ args = parser.parse_args()
 # if all arguments is typed for file which include users to try on differnt port and save to own file
 if args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress and args.port and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -196,7 +196,7 @@ if args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress and 
 
 elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress and args.port:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -232,7 +232,7 @@ elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress an
 
 elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -267,7 +267,7 @@ elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress an
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -302,7 +302,7 @@ elif args.BFA and args.BFAS and args.BFAE and args.nameFile and args.ipAdress:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.port and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),5, 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -337,7 +337,7 @@ elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.port an
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.port:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),5, 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -372,7 +372,7 @@ elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.port:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),5, 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -407,7 +407,7 @@ elif args.BFA and args.BFAS and args.nameFile and args.ipAdress and args.outputF
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAS and args.nameFile and args.ipAdress:
 	# set global variable for user to zero 
-	if check_who_is_bigger(int(args.BFAS),5, 0, 5) != True:
+	if check_who_is_bigger(int(args.BFAS),4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -442,7 +442,7 @@ elif args.BFA and args.BFAS and args.nameFile and args.ipAdress:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.port and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(0,int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -477,7 +477,7 @@ elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.port an
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.port:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(0,int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -512,7 +512,7 @@ elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.port:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(0,int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -547,7 +547,7 @@ elif args.BFA and args.BFAE and args.nameFile and args.ipAdress and args.outputF
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.BFAE and args.nameFile and args.ipAdress:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,int(args.BFAE), 0, 5) != True:
+	if check_who_is_bigger(0,int(args.BFAE), 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -582,7 +582,7 @@ elif args.BFA and args.BFAE and args.nameFile and args.ipAdress:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.nameFile and args.ipAdress and args.port and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,5, 0, 5) != True:
+	if check_who_is_bigger(0,4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -617,7 +617,7 @@ elif args.BFA and args.nameFile and args.ipAdress and args.port and args.outputF
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.nameFile and args.ipAdress and args.port:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,5, 0, 5) != True:
+	if check_who_is_bigger(0,4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -652,7 +652,7 @@ elif args.BFA and args.nameFile and args.ipAdress and args.port:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.nameFile and args.ipAdress and args.outputFile:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,5, 0, 5) != True:
+	if check_who_is_bigger(0,4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -687,7 +687,7 @@ elif args.BFA and args.nameFile and args.ipAdress and args.outputFile:
 				print("password for " + user + " isn't in the file")
 elif args.BFA and args.nameFile and args.ipAdress:
 	# set global variable for user to zero 
-	if check_who_is_bigger(0,5, 0, 5) != True:
+	if check_who_is_bigger(0,4, 0, 4) != True:
 		print("check if you use all obligatory arguments")
         	parser.print_help()
 		exit()
@@ -746,7 +746,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress and args.port and arg
 			help+=1
 			# for user to know program is not stack
 			if(help%50 == 0):
-				print("nothing found in " + help + " try")
+				print("nothing found in " + str(help) + " try")
 			# when user password not contain in file inform user
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
@@ -771,7 +771,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.port and arg
 		help+=1
 		# for user to know program is not stack
 		if(help%50 == 0):
-			print("nothing found in " + help + " try")
+			print("nothing found in " + str(help)+ " try")
 		# when user password not contain in file inform user
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
@@ -803,7 +803,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress and args.port:
 			help+=1
 			# for user to know program is not stack
 			if(help%50 == 0):
-				print("nothing found in " + help + " try")
+				print("nothing found in " + str(help) + " try")
 			# when user password not contain in file inform user
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
@@ -828,7 +828,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.port:
 		help+=1
 		# for user to know program is not stack
 		if(help%50 == 0):
-			print("nothing found in " + help + " try")
+			print("nothing found in " + str(help) + " try")
 		# when user password not contain in file inform user
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
@@ -860,7 +860,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress and args.outputFile:
 			help+=1
 			# for user to know program is not stack
 			if(help%50 == 0):
-				print("nothing found in " + help + " try")
+				print("nothing found in " + str(help) + " try")
 			# when user password not contain in file inform user
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
@@ -885,7 +885,7 @@ elif args.userName and args.passwordFile and args.ipAdress and args.outputFile:
 		help+=1
 		# for user to know program is not stack
 		if(help%50 == 0):
-			print("nothing found in " + help + " try")
+			print("nothing found in " + str(help) + " try")
 		# when user password not contain in file inform user
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")
@@ -917,7 +917,7 @@ elif args.nameFile and args.passwordFile and args.ipAdress:
 			help+=1
 			# for user to know program is not stack
 			if(help%50 == 0):
-				print("nothing found in " + help + " try")
+				print("nothing found in " + str(help) + " try")
 			# when user password not contain in file inform user
 			elif(help == countOfPassw):
 				print("password for " + user + " isn't in the file")
@@ -942,7 +942,7 @@ elif args.userName and args.passwordFile and args.ipAdress:
 		help+=1
 		# for user to know program is not stack
 		if(help%50 == 0):
-			print("nothing found in " + help + " try")
+			print("nothing found in " + str(help) + " try")
 		# when user password not contain in file inform user
 		elif(help == countOfPassw):
 			print("password for " + args.userName + " isn't in the file")

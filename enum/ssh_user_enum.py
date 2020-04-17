@@ -26,6 +26,11 @@ import multiprocessing
 import socket
 import sys
 import json
+### edited by jakub jedlicka
+# not show warnings
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+#### end of edit
 # store function we will overwrite to malform the packet
 old_parse_service_accept = paramiko.auth_handler.AuthHandler._handler_table[paramiko.common.MSG_SERVICE_ACCEPT]
 
